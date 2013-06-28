@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 import webapp2
+import cgi
 
 form="""
 
@@ -50,9 +51,9 @@ form="""
 class MainHandler(webapp2.RequestHandler):
     def write_form(self, error="", month="", day="", year=""):
         self.response.out.write(form % {"error":error,
-                                        "month":month,
-                                        "day":day,
-                                        "year":year})
+                                        "month":escape_html(month),
+                                        "day":escape_html(day),
+                                        "year":escape_html(year)})
     
     def get(self):
         self.write_form()
@@ -70,10 +71,16 @@ class MainHandler(webapp2.RequestHandler):
             self.write_form("That doesn't look valid to me, friend.",
                             user_month, user_day, user_year)
         else:
-            self.response.out.write("Thanks! Valid!")
+            self.redirect('/thanks')
+
+
+class ThanksHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write("Thanks! Valid!")
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/thanks', ThanksHandler)
 ], debug=True)
 
 months= ["January",
@@ -117,6 +124,9 @@ def valid_day(day):
 def valid_year(year):
     if year.isdigit() and year:
             if int(year) >= 1900 and int(year) <= 2025:
-                return int(year)
+                return year
+    return None
 
-    
+
+def escape_html(s):
+    return cgi.escape(s, quote = True)
