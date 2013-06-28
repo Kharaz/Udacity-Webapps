@@ -17,34 +17,16 @@
 import webapp2
 import cgi
 
-form="""
+web_pages = ['form.txt','rot13.txt']
+pages = {}
 
-<form method="post">
-    What is your Birthday?
-    <br>
-    <label>
-        Month
-        <input type="text" name="month" value="%(month)s">
-    </label>
-    
-    <label>
-        Day
-        <input type="text" name="day" value="%(day)s">
-    </label>
-    
-    <label>
-        Year
-        <input type="text" name="year" value"%(year)s">
-    </label>
-    
-    <div style="color: red">%(error)s</div>
-    <br><br>
-    
-    <input type="submit">
-</form>
+for i in web_pages:
+    a = open(i)
+    a = a.read()
+    pages[i[0:i.index('.')]] = a
 
-
-"""
+form = pages['form']
+rot13pg = pages['rot13']
 
 
 
@@ -75,12 +57,30 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class ThanksHandler(webapp2.RequestHandler):
+    
     def get(self):
         self.response.out.write("Thanks! Valid!")
 
+class Rot13_Handler(webapp2.RequestHandler):
+
+    def get(self):
+        self.write_form()
+
+    def write_form(self, text = ""):
+        self.response.out.write(rot13pg % {"text":escape_html(text)})
+
+    def post(self):
+        user_text = self.request.get('text')
+
+        self.write_form(rot13(user_text))
+
+        
+    
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/thanks', ThanksHandler)
+    ('/thanks', ThanksHandler),
+    ('/rot13', Rot13_Handler)
 ], debug=True)
 
 months= ["January",
@@ -96,6 +96,9 @@ months= ["January",
          "November",
          "December"]
 
+
+def rot13(text_in):
+    pass
 
 def valid_month(month):
     try:
