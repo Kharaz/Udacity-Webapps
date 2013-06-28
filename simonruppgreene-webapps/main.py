@@ -23,18 +23,22 @@ form="""
     <br>
     <label>
         Month
-        <input type="text" name = "month" value="%(month)s">
+        <input type="text" name="month" value="%(month)s">
     </label>
+    
     <label>
         Day
         <input type="text" name="day" value="%(day)s">
     </label>
+    
     <label>
         Year
         <input type="text" name="year" value"%(year)s">
     </label>
+    
     <div style="color: red">%(error)s</div>
     <br><br>
+    
     <input type="submit">
 </form>
 
@@ -48,19 +52,23 @@ class MainHandler(webapp2.RequestHandler):
         self.response.out.write(form % {"error":error,
                                         "month":month,
                                         "day":day,
-                                        "year":year
-                                        })
+                                        "year":year})
     
     def get(self):
         self.write_form()
 
     def post(self):
-        user_month = valid_month(self.request.get('month'))
-        user_day = valid_day(self.request.get('day'))
-        user_year = valid_year(self.request.get('year'))
+        user_month = self.request.get('month')
+        user_day = self.request.get('day')
+        user_year = self.request.get('year')
 
-        if not(user_month and user_day and user_year):
-            self.write_form("That doesn't look valid to me, friend.")
+        month = valid_month(user_month)
+        day = valid_day(user_day)
+        year = valid_year(user_year)
+
+        if not(month and day and year):
+            self.write_form("That doesn't look valid to me, friend.",
+                            user_month, user_day, user_year)
         else:
             self.response.out.write("Thanks! Valid!")
 
@@ -68,7 +76,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)
 
-months= ["Jaunary",
+months= ["January",
          "February",
          "March",
          "April",
@@ -83,11 +91,32 @@ months= ["Jaunary",
 
 
 def valid_month(month):
+    try:
+        month_in = (month[0].upper() + month[1:].lower())
+    except:
+        return None
+     
+    if month_in in months:
+        return month_in
+    else:
+        return None
     
 
 def valid_day(day):
-    
+    if day.isdigit() and day:
+        pass
+    else:
+        return None
+       
+    if int(day) > 0 and int(day) <= 31:
+        return day
+    else:
+        return None
+
 
 def valid_year(year):
-    
+    if year.isdigit() and year:
+            if int(year) >= 1900 and int(year) <= 2025:
+                return int(year)
+
     
