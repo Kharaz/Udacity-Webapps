@@ -17,7 +17,8 @@
 import webapp2
 import cgi
 
-web_pages = ['form.txt','rot13.txt']
+web_pages = ['form.txt',
+             'rot13.txt']
 pages = {}
 
 for i in web_pages:
@@ -57,25 +58,21 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class ThanksHandler(webapp2.RequestHandler):
-    
     def get(self):
         self.response.out.write("Thanks! Valid!")
 
 class Rot13_Handler(webapp2.RequestHandler):
+    def write_form(self, text=""):
+        self.response.out.write(rot13pg % {"text":text})
 
     def get(self):
         self.write_form()
 
-    def write_form(self, text = ""):
-        self.response.out.write(rot13pg % {"text":escape_html(text)})
-
     def post(self):
         user_text = self.request.get('text')
-
-        self.write_form(rot13(user_text))
-
-        
-    
+        text = escape_html(user_text)
+        self.response.out.write(rot13(text))
+        self.write_form(rot13(user_text))  
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
@@ -98,7 +95,35 @@ months= ["January",
 
 
 def rot13(text_in):
-    pass
+    out_text = ''
+    alphabet= 'abcdefghijklmnopqrstuvwxyz'
+    ALPHABET= alphabet.upper()
+    punctuation=""",.?!/!@#$%^&*()_+{}|"' <>=-;:1234567890"""
+    
+    for ch in text_in:
+
+        if ch == "<br>":
+            out_text += '\n'
+            continue
+        
+        if ch in punctuation:
+            out_text += ch
+            continue
+        
+        if ch.istitle():
+            try:
+                out_text += ALPHABET[ALPHABET.index(ch)+13]
+            except:
+                out_text += ALPHABET[ALPHABET.index(ch)+13-26]
+                
+        else:
+            try:
+                out_text += alphabet[alphabet.index(ch)+13]
+            except:
+                out_text += alphabet[alphabet.index(ch)+13-26]
+                
+    return out_text
+
 
 def valid_month(month):
     try:

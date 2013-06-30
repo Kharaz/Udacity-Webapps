@@ -1,14 +1,8 @@
-<title>Rot13 'Encryption' App</title>
-test page please ignore<br><br><br>
-
-<h2><b>Enter text to encrypt!</b></h2>
-
+<form method="post">
 <style type="text/css"> textarea { resize: none; } </style>
 
-<form>
-
-	<textarea name="text" rows=5>
-	</textarea>
+	<textarea name="text" value="%(text)s" rows=5></textarea>
 	<br>
 	<input type=submit>
+
 </form>
