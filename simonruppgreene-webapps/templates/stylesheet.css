@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-	<head>
-		<title>/blog/</title>
-
-
-
-	<style type="text/css">
-
 body {
 	font-family: sans-serif;
 	width: 800px;
@@ -59,31 +49,4 @@ hr {
 .entryDate {
 	float: right;
 	font-size: 15px;
-	}
-
-	</style>				
-	</head>
-
-
-	<body>
-		<h1>/blog/</h1>
-
-	<br>
-	<br>
-	<br>	
-	<br>
-	
-	{% for entry in entries %}
-		<div>
-			<div class="entryTitle">{{entry.title}}</div>
-			<div class="entryDate">{{entry.date}}</div>
-			<hr>
-			<pre class="entryContent">{{entry.content}}</pre>
-			<br>
-			<br>
-		</div>
-	{% endfor %}
-
-	</body>
-
-</html>
+	}	
