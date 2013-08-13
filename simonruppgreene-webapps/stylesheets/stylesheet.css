@@ -8,45 +8,61 @@ body {
 h1 {
 	font-weight: bold;
 	font-size: 60px;
-	}
-
-.error {
-	color: red;
-	}	
+}
 
 label {
 	display: block;
 	font-size: 20px;
-	}
+}
 
 input[type=text] {
 	width: 400px;
 	font-size: 20px;	
 	padding: 2px;
-	}
+}
 
 textarea {
 	width: 400px;
 	height: 200px;
 	font-size: 17px;
 	font-family: monospace;
-	}
+}
 
 input[type=submit] {
 	font-size: 24px;
-	}
+}
+
+input[type=password] {
+	font-size: 24px;
+}
 
 hr {
 	margin: 10px auto;
-	}
+}
 
 .entryTitle {
 	font-weight: bold;
 	font-size: 20px;
 	display: inline;
-	}
+}
 
 .entryDate {
 	float: right;
 	font-size: 15px;
-	}	
+}
+
+.asciiSubmit{
+	margin:50px auto;
+	width:400px;
+}
+
+.error {
+	color: red;
+	font-size: 15px;
+	font-family: monospace;
+	display: inline;
+}
+
+.formfield{
+	padding: 10px;
+}	
