@@ -4,7 +4,7 @@ from base import *
 
 class asciiHandler(Handler):
         def render_page(self, title="", art="", error=""):
-            arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC ")
+            arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC LIMIT 10")
             
             self.render("ascii.html", title=title, art=art, error=error, arts = arts)
         
@@ -28,3 +28,17 @@ class Art(db.Model):
     title = db.StringProperty(required = True)
     art = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
+
+
+IP_URL = "http://api.hostip.info/?ip="
+def get_coords(ip):
+        url = IP_URL + ip
+        content = None
+        try:
+                content = urllib2.urlopen(url).read()
+        except URLError:
+                return
+
+        if content:
+                #parse xml and find coordinates
+                pass

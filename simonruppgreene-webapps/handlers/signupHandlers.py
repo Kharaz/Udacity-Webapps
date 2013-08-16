@@ -33,6 +33,10 @@ class signupHandler(Handler):
             params['error_email'] = "Invalid Email"
             have_error = True
 
+        if not check_available(user):
+            params['error_user'] = "That name is already taken"
+            have_error = True
+
         if have_error:
             self.render('signup.html', **params)
         else:
@@ -55,8 +59,6 @@ class User(db.Model):
     password = db.StringProperty(required = True)
     email = db.StringProperty(required = False)
     created = db.DateTimeProperty(auto_now_add = True)
-                    
-
 
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 PASS_RE = re.compile(r"^.{3,20}$")
@@ -68,4 +70,10 @@ def valid_password(pw):
     return pw and PASS_RE.match(pw)
 def valid_email(email):
     return not email or EMAIL_RE.match(email)
+
+def check_available(user):
+    q = db.GqlQuery("SELECT * FROM User WHERE name = :1", user)
+    userquery = q.get()
+    if not userquery:
+        return True
 

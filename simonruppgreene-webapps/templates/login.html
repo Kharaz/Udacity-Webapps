@@ -8,6 +8,18 @@
 
 	<body>
 
+		<div id="navcontainer">
+			<ul id="navlist">
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/ascii">AsciiChan</a></li>
+				<li><a href="/blog/login">Login</a></li>
+				<li><a href="/blog/signup">Signup</a></li>
+				<li><a href="/blog/loginTest">testPage</a></li>
+			</ul>
+		</div>
+
+
+
 		<h1>/blog/login/</h1>
 
 		<hr><br><br><br><br>
@@ -22,6 +34,7 @@
 			<label class="formfield">
 				<div>Password:</div>
 				<input type="password" name="passLog" value={{passLog}}>
+				<div class="error">{{error}}</div>
 			</label>
 
 			<input type="submit">

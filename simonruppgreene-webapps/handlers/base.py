@@ -5,6 +5,10 @@ This file is for all base functions and general framework-laying
 import os
 import webapp2
 import jinja2
+import re
+import sys
+import urllib2
+from xml.dom import minidom
 from datetime import date
 
 from google.appengine.ext import db
@@ -23,5 +27,10 @@ class Handler(webapp2.RequestHandler):
 
         def render(self, template, **kw):
             self.write(self.render_str(template,**kw))
+
+        def purge_user(self, username):
+        	q = db.GqlQuery("SELECT * FROM User WHERE name =:1",username)
+        	db.delete(q.fetch(1))
+
 
         
