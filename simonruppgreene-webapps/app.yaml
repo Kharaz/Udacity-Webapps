@@ -16,6 +16,11 @@ handlers:
 - url: .*
   script: main.app
 
+- url: /(.*\.unity3d)
+  mime_type: application/vnd.unity
+  static_files: static/\1
+  upload: static/(.*\.unity3d)
+
 libraries:
 - name: webapp2
   version: "2.5.1"

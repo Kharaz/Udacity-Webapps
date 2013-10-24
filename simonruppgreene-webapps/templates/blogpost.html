@@ -2,40 +2,68 @@
 
 <html>
 	<head>
-		<title>/blogpost/</title>
-		<link type="text/css" href="/stylesheets/stylesheet.css" rel="stylesheet" />
+		<title>New Post</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
 	</head>
-	
+
 	<body>
 
-		<div id="navcontainer">
-			<ul id="navlist">
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/ascii">AsciiChan</a></li>
-				<li><a href="/blog/login">Login</a></li>
-				<li><a href="/blog/signup">Signup</a></li>
-				<li><a href="/blog/loginTest">testPage</a></li>
-			</ul>
+
+		<!-- Navbar Start-->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand" href="#"> New Post </a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li> <a href="/blog">Blog</a> </li>
+						<li> <a href="#">New Post</a> </li>
+						<li> <a href="/ascii">AsciiChan</a> </li>
+						<li> <a href="/blog/loginTest">testPage</a> </li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li> <a href="/blog/signup">Sign Up</a> </li>
+						<li> <a href="/blog/login">Login</a> </li>
+					</ul>
+				</div>
+
+			</div>
 		</div>
-		
-		<h1>/blog/blogpost/</h1>
-		
-	<hr>
-		<form method="post">
-			<label>
-				<div>title</div>
-				<input type="text" name="title" value = {{title}}>			</label>
-	
-			<label>
-				<div>Entry</div>
-				<textarea name="entry">{{entry}}</textarea>
-			</label>
+		<!-- Navbar End-->
 
-			<div class="error">{{error}}</div>
 
-			<input type="submit">
-	
+		<form class="form">
+			<div class="form-group">
+				<label class="control-label">Title:
+					<input class="form-control" type="text" name="title" value={{title}}>
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label">Content:
+					<textarea class="input-block-level form-control" type="text" name="entry">{{entry}}</textarea>
+				</label>
+			</div>
+
+			<input class="btn btn-primary" type="submit">
 		</form>
 
+		<!-- Footer-->
+		<div class="footer text-center">
+			<p>&copy; 2013 Simon Rupp-Greene </p>
+		</div>
+		<!-- /Footer-->
 
+	</body>
 </html>

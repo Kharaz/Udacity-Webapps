@@ -6,7 +6,7 @@ from base import *
 
 class blogHandler(Handler):
         def render_page(self):
-            entries = db.GqlQuery("SELECT * FROM Entry ORDER BY created DESC ")
+            entries = db.GqlQuery("SELECT * FROM Entry ORDER BY created ASC ")
             
             self.render("blog.html", entries=entries)
         

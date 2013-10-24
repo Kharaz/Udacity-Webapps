@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 
 <html>
-
 	<head>
-		<title>TestPage</title>
-		<link type="text/css" href="/stylesheets/stylesheet.css" rel="stylesheet" />
+		<title>/loginTest/</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
 	</head>
 
 	<body>
-		<div id="navcontainer">
-			<ul id="navlist">
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/ascii">AsciiChan</a></li>
-				<li><a href="/blog/login">Login</a></li>
-				<li><a href="/blog/signup">Signup</a></li>
-				<li><a href="/blog/loginTest">testPage</a></li>
-			</ul>
+
+
+		<!-- Navbar Start-->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand" href="/blog"> loginTest </a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li> <a href="/blog">Blog</a> </li>
+						<li> <a href="/blog/blogPost">New Post</a> </li>
+						<li> <a href="/ascii">AsciiChan</a> </li>
+						<li> <a href="/blog/loginTest">testPage</a> </li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li> <a href="/blog/signup">Sign Up</a> </li>
+						<li> <a href="/blog/login">Login</a> </li>
+					</ul>
+				</div>
+
+			</div>
 		</div>
+		<!-- Navbar End-->
 
-
-		<h1>users</h1>
-		<hr>
-
-	{% for user in users %}
-		<div>{{user.name}}</div>
-		<div>{{user.password}}</div>
-		<div>{{user.email}}</div>
-		<div>{{user.created}}</div>
-	{% endfor %}	
+		{% for user in users %}
+			<div>Username: {{user.name}}</div>
+			<div>Password Hash: {{user.password}}</div>
+			<div>Email: {{user.email}}</div>
+			<div>Creation Date: {{user.created}}</div>
+			<br>
+		{% endfor %}
 
 		<hr>
 
@@ -37,8 +58,13 @@
 				<input type="text" name="user" value={{user}}>
 				<input type="submit">
 			</label>
-		</form>			
+		</form>
+
+		<!-- Footer-->
+		<div class="footer text-center">
+			<p>&copy; 2013 Simon Rupp-Greene </p>
+		</div>
+		<!-- /Footer-->
 
 	</body>
-
 </html>

@@ -2,27 +2,45 @@
 
 <html>
 	<head>
-		<title>/blog/login/</title>
-		<link type="text/css" href="/stylesheets/stylesheet.css" rel="stylesheet" />
+		<title>login</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
 	</head>
 
 	<body>
 
-		<div id="navcontainer">
-			<ul id="navlist">
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/ascii">AsciiChan</a></li>
-				<li><a href="/blog/login">Login</a></li>
-				<li><a href="/blog/signup">Signup</a></li>
-				<li><a href="/blog/loginTest">testPage</a></li>
-			</ul>
+
+		<!-- Navbar Start-->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand active" href="#"> Login </a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li> <a href="/blog">Blog</a> </li>
+						<li> <a href="/blog/blogPost">New Post</a> </li>
+						<li> <a href="/ascii">AsciiChan</a> </li>
+						<li> <a href="/blog/loginTest">testPage</a> </li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li> <a href="/blog/signup">Sign Up</a> </li>
+						<li class="active"> <a href="/blog/login">Login</a> </li>
+					</ul>
+				</div>
+
+			</div>
 		</div>
-
-
-
-		<h1>/blog/login/</h1>
-
-		<hr><br><br><br><br>
+		<!-- Navbar End-->
 
 		<form method="post">
 
@@ -41,7 +59,11 @@
 
 		</form>
 
+		<!-- Footer-->
+		<div class="footer text-center">
+			<p>&copy; 2013 Simon Rupp-Greene </p>
+		</div>
+		<!-- /Footer-->
 
 	</body>
-
 </html>
