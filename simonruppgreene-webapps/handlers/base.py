@@ -32,5 +32,12 @@ class Handler(webapp2.RequestHandler):
         	q = db.GqlQuery("SELECT * FROM User WHERE name =:1",username)
         	db.delete(q.fetch(1))
 
+        def set_cookie(self, name, val):
+            self.response.headers.add_header('Set-Cookie','%s=%s; Path=/' % 
+                                                        (str(name), str(val)))
+
+        def read_cookie(self, name):
+            cookie_val = self.request.cookies.get(name)
+            return cookie_val
 
         

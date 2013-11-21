@@ -12,6 +12,7 @@ class loginHandler(Handler):
         attempt_logged_user = db.GqlQuery("SELECT * FROM User WHERE name = :1", user)
         logUser = attempt_logged_user.get()
         if valid_pw(user, pw, logUser.password):
+            self.set_cookie('user',user)
             self.redirect("/blog/welcome?user="+user)
         else:
             error = "Invalid Password"
