@@ -15,6 +15,7 @@ class unityHandlerTest(Handler):
 		self.render("unity/Build1.html")
 
 	def get(self):
+		#self.render_page()
 		self.render_page()
 
 	def post(self):

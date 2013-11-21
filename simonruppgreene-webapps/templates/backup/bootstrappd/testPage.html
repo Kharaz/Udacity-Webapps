@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>TestPage</title>
+	</head>
+
+	<body>
+		<h1>TestPage</h1>
+
+	{% for entry in entries %}
+		<div>{{entry.title}}</div>
+		<div>{{entry.content}}</div>
+	{% endfor %}				
+
+	</body>
+
+</html>

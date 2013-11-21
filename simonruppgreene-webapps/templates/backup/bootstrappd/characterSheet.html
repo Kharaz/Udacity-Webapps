@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>/charactersheet</title>
+	</head>
+
+	<style type="text/css">
+	body {
+		font-family: sans-serif;
+		width: 800px;
+		margin: 30px auto;	
+		padding: 40px;
+	}
+
+	h1 {
+		font-weight: bold;
+		font-size: 60px;
+	}
+
+	.error {
+		color: red;
+	}	
+
+	label {
+		display: block;
+		font-size: 20px;
+	}
+
+	input[type=text] {
+		width: 400px;
+		font-size: 20px;	
+		padding: 2px;
+	}
+
+	textarea {
+		width: 400px;
+		height: 200px;
+		font-size: 17px;
+		font-family: monospace;
+	}
+
+	input[type=submit] {
+		font-size: 24px;
+	}
+
+	hr {
+		margin: 10px auto;
+	}
+
+	.entryTitle {
+		font-weight: bold;
+		font-size: 20px;
+		display: inline;
+
+	}
+
+	.entryDate {
+		float: right;
+		font-size: 15px;
+	}	
+	
+	</style>
+
+	<body>
+		<h1>/charactersheet/</h1>
+
+	<br><br><br><br>
+	<hr>
+
+		<div class="charsheet">
+			<div class="charStats">
+			<form method="post">
+				<label>
+					<div>Name</div>
+					<input type="text" name="name" value={{name}}>
+				</label>
+
+				<label>
+					<div>Race</div>
+					<input type="text" name="race" value={{race}}>
+				<label>
+			</form>
+			</div>
+			
+		</div>
+
+	</body>
+
+</html>

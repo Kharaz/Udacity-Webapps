@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Signup</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
+	</head>
+
+	<body>
+
+
+		<!-- Navbar Start-->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand" href="#"> Signup </a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li> <a href="/blog">Blog</a> </li>
+						<li> <a href="/blog/blogPost">New Post</a> </li>
+						<li> <a href="/ascii">AsciiChan</a> </li>
+						<li> <a href="/blog/loginTest">testPage</a> </li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"> <a href="#">Sign Up</a> </li>
+						<li> <a href="/blog/login">Login</a> </li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- Navbar End-->
+
+		<form method="post" class="form">
+
+			<div class="form-group">
+				<label class="control-group">
+					<div>Username</div>
+					<input class="form-control" placeholder="Username" type="text" name="user" value={{user}}>
+					<div class="error">{{error_user}}</div>
+				</label>
+			</div>
+		
+			<div class="form-group">
+				<label class="control-group">
+					<div>Password</div>
+					<input class="form-control" placeholder="Password" type="password" name="pw" value={{pw}}>
+					<div class="error">{{error_pw}}</div>
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label class="control-group">
+					<div>Verify Password</div>
+					<input class="form-control" placeholder="Verify Password" type="password" name="verify" value={{verify}}>
+					<div class="error">{{error_verify}}</div>
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label class="control-group">
+					<div>Email</div>
+					<input class="form-control" placeholder="Email Address" type="text" name="email" value={{email}}>
+					<div class="error">{{error_email}}</div>
+				</label>
+			</div>
+
+			<input class="btn btn-primary" type="submit">
+
+		</form>
+
+		<!-- Footer-->
+		<div class="footer text-center">
+			<p>&copy; 2013 Simon Rupp-Greene </p>
+			<p class="social-media-icons">
+		</div>
+		<!-- /Footer-->
+
+	</body>
+</html>

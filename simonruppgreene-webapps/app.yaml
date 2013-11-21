@@ -9,17 +9,20 @@ handlers:
 - url: /stylesheets
   static_dir: stylesheets
 
+- url: /js
+  static_dir: js
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /(.*\.unity3d)
+  static_files: unity/\1
+  upload: unity/(.*\.unity3d)
+  mime_type: application/vnd.unity
+
 - url: .*
   script: main.app
-
-- url: /(.*\.unity3d)
-  mime_type: application/vnd.unity
-  static_files: static/\1
-  upload: static/(.*\.unity3d)
 
 libraries:
 - name: webapp2

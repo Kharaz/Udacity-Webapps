@@ -9,6 +9,7 @@ from handlers.signupHandlers import *
 from handlers.welcomeHandlers import *
 from handlers.loginHandlers import *
 from handlers.unityHandlers import *
+from handlers.html5gameHandlers import *
 
 app = webapp2.WSGIApplication([
         ('/blog', blogHandler),
@@ -20,7 +21,10 @@ app = webapp2.WSGIApplication([
         ('/ascii', asciiHandler),
         ('/testPage', testHandler),
         ('/unityfps', unityHandlerFPS),
-        ('/unitytest', unityHandlerTest)],
+        ('/unitytest', unityHandlerTest),
+        ('/html5test', html5gameHandler),
+        ('/jquery', jqueryHandler)
+        ],
         debug = True)
                 
             

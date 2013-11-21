@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>TestPage</title>
+		<link type="text/css" href="/stylesheets/stylesheet.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="navcontainer">
+			<ul id="navlist">
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/ascii">AsciiChan</a></li>
+				<li><a href="/blog/login">Login</a></li>
+				<li><a href="/blog/signup">Signup</a></li>
+				<li><a href="/blog/loginTest">testPage</a></li>
+			</ul>
+		</div>
+
+
+		<h1>users</h1>
+		<hr>
+
+	{% for user in users %}
+		<div>{{user.name}}</div>
+		<div>{{user.password}}</div>
+		<div>{{user.email}}</div>
+		<div>{{user.created}}</div>
+	{% endfor %}	
+
+		<hr>
+
+		<form method="post">
+			<label class="formfield">
+				<div>Delete User</div>
+				<input type="text" name="user" value={{user}}>
+				<input type="submit">
+			</label>
+		</form>			
+
+	</body>
+
+</html>
