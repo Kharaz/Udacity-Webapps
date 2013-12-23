@@ -2,7 +2,7 @@ from base import *
 
 class html5gameHandler(Handler):
     def get(self):
-        self.render('html5game/html5game2.html')
+        self.render('html5game/html5game.html')
 
     def post():
     	pass

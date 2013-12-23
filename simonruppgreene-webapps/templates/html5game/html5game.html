@@ -5,8 +5,8 @@
 		<title>CURRENT_PAGE</title>
 		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
-		<script language="javascript" type="text/javascript" src="js/localjquery.js"/>
-		<script language="javascript" type="text/javascript" src="js/html5game.js"/>
+		<script language="javascript" type="text/javascript" src="js/localjquery.js"></script>
+		<script language="javascript" type="text/javascript" src="js/html5game.js"></script>
 	</head>
 
 	<body>
@@ -40,32 +40,8 @@
 			</div>
 		</div>
 		<!-- Navbar End-->
-
-		<script style="display: block, position: relative" type="text/javascript">
-		var CANVAS_WIDTH = 480;
-		var CANVAS_HEIGHT = 320;
-
-		var canvasElement = $("<canvas width='" + CANVAS_WIDTH +
-							  "' height='" + CANVAS_HEIGHT + "'></canvas>");
-		var canvas = canvasElement.get(0).getContext("2d");
-		canvasElement.appendTo('body');
-
-		var FPS = 30;
-
-		setInterval(function() {
-			update();
-			draw();
-		}), 1000/FPS);
-
-		function update() {
-
-		}
-
-		function draw() {
-			canvas.fillStyle = "#000";
-			canvas.fillText("Sup.", 50,50);
-		}
-		</script>
+	<div class="canvasContainer"></div>
+		
 
 		<!-- Footer-->
 		<div class="footer text-center">
