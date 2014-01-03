@@ -19,8 +19,6 @@ class loginHandler(Handler):
             self.render("login.html", error = error)
             
 
-        
-
 class testLogin(Handler):
     def get(self):
         all_users = db.GqlQuery("SELECT * FROM User ORDER BY created DESC")
