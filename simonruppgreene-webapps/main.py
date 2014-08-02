@@ -26,7 +26,7 @@ app = webapp2.WSGIApplication([
         ('/unitytest', unityHandlerTest),
         ('/html5test', html5gameHandler),
         ('/jquery', jqueryHandler),
-        ('/testCookies', testCookieHandler)
+        ('/testCookies', testCookieHandler),
         ('/profile', profileHandler)
         ],
         debug = True)

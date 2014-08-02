@@ -8,6 +8,7 @@ class User(db.Model):
     email = db.StringProperty(required = False)
     created = db.DateTimeProperty(auto_now_add = True)
     userID = db.IntegerProperty(required = False)
+    html5text = db.StringProperty(required = False)
 
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 PASS_RE = re.compile(r"^.{3,20}$")

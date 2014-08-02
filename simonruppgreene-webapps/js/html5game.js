@@ -1,18 +1,34 @@
 window.onload = function() {
+	function getCookieValue(name){
+		var value = "; " + document.cookie;
+		var parts = value.split("; "+name+"=");
+
+		if (parts.length == 2) {
+			return parts.pop().split(";").shift();
+		}
+	}
+
+	//GREAT we can get the cookie...
+	//but we can't access the GQL database (for good reason)
+	//now what
+
 	var CANVAS_WIDTH = 480;
 	var CANVAS_HEIGHT = 320;
 
 	var x = 50;
 	var y = 50;
 
-	var vx = 5;
-	var vy = 5;
+	var vx = 3;
+	var vy = 4;
 
 
 	var canvasElement = $("<canvas width='" + CANVAS_WIDTH +
 						  "' height='" + CANVAS_HEIGHT + "'></canvas>");
 	var canvas = canvasElement.get(0).getContext("2d");
 	canvasElement.appendTo('.canvasContainer');
+
+	//var textString = "bob";
+	var textString = $("#html5text").text();
 
 	var FPS = 60;
 
@@ -43,6 +59,6 @@ window.onload = function() {
 
 	function draw(x,y) {
 		canvas.fillStyle = "#000";
-		canvas.fillText("Sup.", x,y);
+		canvas.fillText(textString, x,y);
 	}
 }
