@@ -4,10 +4,11 @@ import time
 
 class welcomeHandler(Handler):
     def get(self):
-        user = self.request.get('user')
+        userID = self.request.cookies.get('user')
+        userName = db.GqlQuery("SELECT * FROM User WHERE userID = :1", userID).get()
 
-        if valid_user(user):
-            self.render('welcome.html',user = user)
+    	if(userID):
+    		self.render('welcome.html',user = userName)
 
         else:
             self.redirect('/signup')

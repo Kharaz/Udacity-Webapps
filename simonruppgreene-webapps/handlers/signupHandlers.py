@@ -40,10 +40,15 @@ class signupHandler(Handler):
         if have_error:
             self.render('signup.html', **params)
         else:
-            u = User(name = user, password = make_pw_hash(user, pw), email = email)
+            newUserId = db.GqlQuery("SELECT COUNT FROM User").get()
+            if(type(newUserId) == type(None)):
+                newUserId = 0
+            u = User(name = user, password = make_pw_hash(user, pw), email = email, userID = newUserId)
             u.put()
+
+            self.response.headers.add_header('Set-Cookie','user=%i, Path=/' % newUserId)
             
-            self.redirect('/blog/welcome?user='+user)
+            self.redirect('/blog/welcome')
 
 class Welcome(Handler):
     def get(self):
@@ -59,6 +64,7 @@ class User(db.Model):
     password = db.StringProperty(required = True)
     email = db.StringProperty(required = False)
     created = db.DateTimeProperty(auto_now_add = True)
+    userID = db.IntegerProperty()
 
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 PASS_RE = re.compile(r"^.{3,20}$")
