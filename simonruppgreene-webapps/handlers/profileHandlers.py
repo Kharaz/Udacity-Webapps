@@ -13,9 +13,8 @@ class profileHandler(Handler):
 		self.render_page()
 
 	def post(self):
-		html5text = self.request.get("html5text")
-		response = self.request.get("response")
-		logging.debug("new html text: " +html5text)
+		html5text = self.request.get("htext")
+		testForm = self.request.get("testform")
 
 		if html5text:
 			userID = int(verify_hash(self.request.cookies.get("userID")))

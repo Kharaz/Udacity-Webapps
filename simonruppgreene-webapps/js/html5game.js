@@ -1,17 +1,18 @@
-window.onload = function() {
-	function getCookieValue(name){
-		var value = "; " + document.cookie;
-		var parts = value.split("; "+name+"=");
+function getCookieValue(name){
+	var value = "; " + document.cookie;
+	var parts = value.split("; "+name+"=");
 
-		if (parts.length == 2) {
-			return parts.pop().split(";").shift();
-		}
+	if (parts.length == 2) {
+		return parts.pop().split(";").shift();
 	}
+}
 
-	//GREAT we can get the cookie...
-	//but we can't access the GQL database (for good reason)
-	//now what
+//GREAT we can get the cookie...
+//but we can't access the GQL database (for good reason)
+//now what
 
+
+window.onload = function() {
 	var CANVAS_WIDTH = 480;
 	var CANVAS_HEIGHT = 320;
 
