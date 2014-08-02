@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<title>Profile</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/stylesheets/stylesheet.css" rel="stylesheet"/>
 	</head>
 
 	<body>
-		<div></div>
+	
+
+	<div class = "profContainer">
+		<label>Profile: </label>
+		<ul class = "profAttributes"> 
+			<li><b>Username:</b> {{user.name}}</li>
+			<li><b>Email:</b> {{user.email}} </li>
+			<li><b>Account created:</b> {{user.created}} </li>
+			<li><b>Current html text: </b> {{user.html5text}}</li>
+			<li>
+
+			<form method = "post" class="htmltextsubmit"> 
+				<label>Set html5 bouncy text: 
+				<input type="text" value={{html5text}}>
+				<input type="submit">
+				</label>
+			</form>
+
+		</ul>
+	</div>
+
+	<div class = "profContainer">
+		<form method="post">
+			<button type="button">Logout</button>
+		</form>
+	</div>
+
+
+
+
+
 	</body>
 </html>

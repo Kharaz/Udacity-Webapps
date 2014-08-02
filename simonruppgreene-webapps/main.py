@@ -11,6 +11,7 @@ from handlers.asciiHandlers import *
 from handlers.unityHandlers import *
 from handlers.html5gameHandlers import *
 from handlers.authenticationHandlers import *
+from handlers.profileHandlers import *
 
 app = webapp2.WSGIApplication([
         ('/blog', blogHandler),
@@ -26,6 +27,7 @@ app = webapp2.WSGIApplication([
         ('/html5test', html5gameHandler),
         ('/jquery', jqueryHandler),
         ('/testCookies', testCookieHandler)
+        ('/profile', profileHandler)
         ],
         debug = True)
                 

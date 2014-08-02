@@ -95,3 +95,24 @@ hr {
 	background-color: #369;
 	color: #fff;
 }
+
+
+.canvasContainer {
+	width: 480px;
+	height: 320px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: orange;
+	border: solid black;
+	z-index: -1;
+}
+
+.profContainer {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 480px;
+	background-color: orange;
+	border: solid black;
+}
