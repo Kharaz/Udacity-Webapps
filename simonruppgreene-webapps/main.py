@@ -11,6 +11,7 @@ from handlers.loginHandlers import *
 from handlers.unityHandlers import *
 from handlers.html5gameHandlers import *
 from handlers.profileHandlers import *
+from handlers.portfolioHandlers import *
 
 app = webapp2.WSGIApplication([
         ('/blog', blogHandler),
@@ -24,8 +25,10 @@ app = webapp2.WSGIApplication([
         ('/unityfps', unityHandlerFPS),
         ('/unitytest', unityHandlerTest),
         ('/html5test', html5gameHandler),
+        ('/html5test2', html5game2Handler),
         ('/jquery', jqueryHandler),
-        ('/profile', profileHandler)
+        ('/profile', profileHandler),
+        ('/portfolio', portfolioHandler)
         ],
         debug = True)
                 
