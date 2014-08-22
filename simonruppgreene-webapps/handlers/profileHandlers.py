@@ -1,37 +1,27 @@
 from base import *
-
+from passHash import *
+import logging
 
 class profileHandler(Handler):
 	def render_page(self, response=""):
-		user = self.request.cookies.get('user')
-		profData = db.GqlQuery("SELECT * FROM User WHERE name = :1", user).get()
-		#profData = db.GqlQuery("SELECT * FROM User WHERE name = :1", user)
+		userID = verify_hash(self.request.cookies.get('userID'))
+		profData = db.GqlQuery("SELECT * FROM User WHERE userID = :1", int(userID)).get()
 
-		try:
-			profData.html5text
-		except:
-			profData.html5text = "None"
-			profData.put()
-
-
-		self.render("profile.html", user = profData, response = response)
+		self.render("profile.html", user = profData)
 
 	def get(self):
 		self.render_page()
 
 	def post(self):
-		html5text = self.request.get("html5text")
-		response = self.request.get("response")
+		html5text = self.request.get("htext")
+		testForm = self.request.get("testform")
 
 		if html5text:
-			user = self.request.cookies.get("user")
-			profData = db.GqlQuery("SELECT * FROM User WHERE name = :1", user).get()
+			userID = int(verify_hash(self.request.cookies.get("userID")))
+			profData = db.GqlQuery("SELECT * FROM User WHERE userID = :1", userID).get()
 			profData.html5text = html5text
 			profData.put()
-			print profData.html5text
-
 		else:
 			pass
 
-		#self.render_page()
-
+		self.render_page()

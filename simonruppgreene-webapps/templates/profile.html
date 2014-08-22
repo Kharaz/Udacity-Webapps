@@ -15,14 +15,20 @@
 			<li><b>Username:</b> {{user.name}}</li>
 			<li><b>Email:</b> {{user.email}} </li>
 			<li><b>Account created:</b> {{user.created}} </li>
-			<li><b>Current html text: </b> {{user.html5text}}</li>
-			<li>
+			<li><b>Html5 Text:</b> {{user.html5text}} </li>
 
 			<form method = "post" class="htmltextsubmit"> 
 				<label>Set html5 bouncy text: 
-				<input type="text" value={{html5text}}>
-				<input type="submit">
+				<input type="text" name="htext" value = {{htext}}>
 				</label>
+				<input type="submit">
+			</form>
+
+			<form method = "post" class="htmltextsubmit"> 
+				<label>Test Form:
+				<input type="text" name = "testform" value = {{testform}}>
+				</label>
+				<input type="submit">
 			</form>
 
 		</ul>

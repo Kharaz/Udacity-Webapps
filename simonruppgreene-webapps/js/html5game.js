@@ -1,3 +1,19 @@
+
+function getCookieValue(name){
+	var value = "; " + document.cookie;
+	var parts = value.split("; "+name+"=");
+
+	if (parts.length == 2) {
+		return parts.pop().split(";").shift();
+	}
+}
+
+//GREAT we can get the cookie...
+//but we can't access the GQL database (for good reason)
+//now what
+
+
+//window.onload = function() {
 var CANVAS_WIDTH = 480;
 var CANVAS_HEIGHT = 320;
 
@@ -12,9 +28,8 @@ var vy = 5;
 
 var FPS = 60;
 
+//ctx is canvas context
 function drawHexagon(ctx, position){
-	//ctx is canvas context
-
 	ctx.beginPath();
 	ctx.fillStyle="yellow";
 	ctx.strokeStyle="black";
@@ -50,42 +65,48 @@ function updateXY(){
 	if (x > (CANVAS_WIDTH-20) || x < 0){
 		vx = -vx;
 	}
-
 	if (y > (CANVAS_HEIGHT-20) || y < 20){
 		vy = -vy;
 	}
-
 	x += vx;
 	y += vy;
+
 }
 
+//var textString = "Hello";
+function draw(canvas, x,y, textString) {
+	canvas.fillStyle = "#000";
+	canvas.fillText(textString, x,y);
+	//console.log(x+","+y);
+}	
+
+/*
 function draw(canvas, x,y) {
 	canvas.fillStyle = "#000";
 	canvas.fillText("Sup.", x,y);
 }
+*/
 
 function clear(canvas) {
 		canvas.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
-	}
+}	
 
 //update canvans
-function update(canvas) {
+function update(canvas, text) {
 	clear(canvas);
 	updateXY();
-	draw(canvas, x,y);
+	draw(canvas, x,y, text);
 	drawHexagon(canvas, [50,50]);
 }
 
 
 window.onload = function() {
+	var textString = $("#html5text").text();
 	var canvas = canvasElement.get(0).getContext("2d");
 	canvasElement.appendTo('.canvasContainer');
 
-
-
 	setInterval(function() { //what to call every frame
-		update(canvas);
+		update(canvas, textString);
 		//draw();
 	}, 1000/FPS);
-
 }

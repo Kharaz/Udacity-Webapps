@@ -8,6 +8,7 @@
 		<script language="javascript" type="text/javascript" src="js/localjquery.js"></script>
 		<script language="javascript" type="text/javascript" src="js/html5game.js"></script>
 		<script language="javascript" type="text/javascript" src="js/jquery.hotkeys.js"></script>
+		<div id="html5text" value={{html5text}}>{{html5text}}</div>
 	</head>
 
 	<body>
@@ -41,10 +42,17 @@
 			</div>
 		</div>
 		<!-- Navbar End-->
-	<div class="playerInfoContainer"></div>
-	<div class="canvasContainer"></div>
 		
+		<div class="playerInfoContainer"></div>
+		<div class="canvasContainer"></div>
 
+		<div>
+			<h2>Canvas Test</h2>
+			<p>While it may not look like much, it's actually sort of interesting (to me at least).<br><hr>
+				What is happening here: the bouncing text is grabbed from a cookie that's set by the server when a user logs in. The data that the server retrieves is stored in a database, GQL to be specific. So this is really just a little experiment tracing the transport of data from database to server to end user, initiated by user request.
+			<p>
+		</div>
+		
 		<!-- Footer-->
 		<div class="footer text-center">
 			<p>&copy; 2013 Simon Rupp-Greene </p>
